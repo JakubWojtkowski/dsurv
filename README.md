@@ -23,7 +23,7 @@ echo $OWNER_PUBLIC_KEY
 
 5. Check the owner's balance:
 ```
-dfx canister call token balanceOf "( $OWNER_PUBLIC_KEY )"
+dfx canister call token balanceOf"( $OWNER_PUBLIC_KEY )"
 ```
 
 # Charge the Canister
