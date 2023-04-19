@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { token } from "../../../declarations/token";
 
 function Faucet() {
 
-  async function handleClick(event) {
+  const [isDisabled, setDisable] = useState(false);
+  const [btnText, setText] = useState("Gimmie gimmie");
 
+  async function handleClick(event) {
+    setDisable(true);
+    const result = await token.payOut();
+    setText(result);
   }
 
   return (
@@ -14,10 +20,14 @@ function Faucet() {
         </span>
         Faucet
       </h2>
-      <label>Get your free DSurv tokens here! Claim 10,000 DWOJC coins to your account.</label>
+      <label>Get your free DSurv tokens here! Claim 10,000 DWOJC token to your account.</label>
       <p className="trade-buttons">
-        <button id="btn-payout" onClick={handleClick}>
-          Gimme gimme
+        <button 
+        id="btn-payout"
+        onClick={handleClick} 
+        disabled={isDisabled}
+        >
+          {btnText}
         </button>
       </p>
     </div>
