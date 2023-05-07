@@ -13,13 +13,13 @@ const init = async () => {
       identityProvider: "https://identity.ic0.app/#authorize",
       onSuccess: () => {
         handleAuthenticated(authClient);
-      }
+      },
     });
   }
 };
 
 async function handleAuthenticated(authClient) {
   ReactDOM.render(<App />, document.getElementById("root"));
-} 
+}
 
 init();
